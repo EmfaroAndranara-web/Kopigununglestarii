@@ -1,4 +1,4 @@
-![alt text](https://github.com/EmfaroAndranara-web/Kopigununglestari/blob/main/P11%20(1).jpg?raw=true)
+![alt text](https://private-user-images.githubusercontent.com/232608270/492358920-ec31d001-b729-447f-bcb3-228d898fedc7.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTg1NTEyNjYsIm5iZiI6MTc1ODU1MDk2NiwicGF0aCI6Ii8yMzI2MDgyNzAvNDkyMzU4OTIwLWVjMzFkMDAxLWI3MjktNDQ3Zi1iY2IzLTIyOGQ4OThmZWRjNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwOTIyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDkyMlQxNDIyNDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wNTA1NTExODVkOTZmNTZjYjVjYThlNjk0MDMzNTA4YzBhMWU2OTljYjAwOWQ4ZjQyNzQzNzBjYWZkOWY3YjE3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.I73epb4CjkzDXsXQ3cFx2Qx2hPGJE7GnniBNK4CgVd4?raw=true)
 ![alt text](https://github.com/EmfaroAndranara-web/Kopigununglestari/blob/main/P11%20(2).jpg?raw=true)
 ![alt text](https://github.com/EmfaroAndranara-web/Kopigununglestari/blob/main/P11%20(3).jpg?raw=true)
 # Kopigununglestarii
