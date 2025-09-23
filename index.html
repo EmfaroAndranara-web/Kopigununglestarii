@@ -3,58 +3,107 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kopi Gunung Lestari</title>
-  <meta name="description" content="Kopi Gunung versi simple: Home, Profil, Produk, dan Kontak Kami.">
+  <title>Kopi Gunung Temanggung — Aroma Asli, Rasa Jujur</title>
+  <meta name="description" content="Kopi Gunung Temanggung — kopi spesialti dari dataran tinggi, diproses penuh cinta.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg-a:#2b1a10;
-      --bg-b:#140d08;
-      --accent:#e7a663;
-      --accent-2:#c9823d;
-      --text:#fbf7f2;
-      --muted:#e8d7c5;
+    :root {
+      --bg1: #0f0a06;
+      --bg2: #2a170c;
+      --accent: #e3a15b;
+      --accent-2: #c07a3e;
+      --text: #f9f4ef;
+      --muted: #d8c8b8;
     }
-    html,body{scroll-behavior:smooth}
-    body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    html, body { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .noise {
+      position: fixed; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(ellipse at 20% -10%, rgba(227,161,91,0.20), transparent 50%),
+        radial-gradient(ellipse at 110% 10%, rgba(192,122,62,0.20), transparent 45%),
+        radial-gradient(ellipse at 50% 120%, rgba(255,255,255,0.05), transparent 40%);
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-active::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -6px;
+      margin: auto;
+      width: 24px; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+    }
+    @keyframes floaty {
+      0% { transform: translateY(0) }
+      50% { transform: translateY(-6px) }
+      100% { transform: translateY(0) }
+    }
+    /* Ring estetik lembut */
+    .aesthetic-ring {
+      position: relative;
+      padding: 1px; /* ketebalan ring */
+      border-radius: 18px;
+      background: radial-gradient(120% 120% at 20% 0%, rgba(227,161,91,0.55), rgba(192,122,62,0.18) 35%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.02) 100%);
+    }
+    .aesthetic-ring::after {
+      content: "";
+      position: absolute; inset: -10%; filter: blur(20px); border-radius: 24px;
+      background: radial-gradient(100% 100% at 70% 10%, rgba(227,161,91,0.25), transparent 60%);
+      pointer-events: none;
+    }
   </style>
 </head>
-<body class="min-h-screen bg-[radial-gradient(900px_600px_at_85%_-10%,#3a2316,transparent_60%),linear-gradient(180deg,var(--bg-a),var(--bg-b))] text-[var(--text)]">
+<body class="min-h-screen bg-[radial-gradient(1200px_800px_at_80%_-10%,#3b2316_0%,#1b120c_35%,#0f0a06_70%)] text-[var(--text)] relative">
+  <div class="noise"></div>
+
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black/25 backdrop-blur border-b border-white/10">
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20 border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-center justify-between py-3">
-        <a href="#home" class="flex items-center gap-3">
-          <span class="inline-flex w-9 h-9 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)] text-[#2a170c]">
-            <!-- Bean icon -->
-            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true">
-              <path d="M16.6 2.7c-3.3-2.2-7.5-2-10.4.6-4 3.3-5 9.4-2 14.2 3 4.8 9.1 6.5 13.5 2.9 2.3-1.9 3.7-4.7 3.8-7.5.1-3.2-1.4-6.2-4-8.1l-1 1.3c2.2 1.6 3.4 4.1 3.3 6.7-.1 2.3-1.2 4.5-3.1 6-3.7 3.2-9.4 2-12.1-2.7-2.3-3.9-1.4-8.8 1.9-11.5 2.4-2 5.8-2.1 8.4-.5l1.1-1.3z"/>
+        <a href="#home" class="flex items-center gap-3 group">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)] shadow-lg shadow-[rgba(227,161,91,0.35)]">
+            <svg viewBox="0 0 64 64" class="w-6 h-6 text-[#2a170c]" fill="currentColor" aria-hidden="true">
+              <path d="M46.2 9.6c-6.9-4.6-15.8-4.1-22 1.2-8.4 7-10.3 19.9-4.2 30C25 53 39.6 55.8 49 47.8c4.8-4 7.6-9.7 7.8-15.5.2-6.6-2.9-13.1-8.6-17.1l-1.9 2.7c4.7 3.3 7.3 8.6 7.1 13.9-.2 4.7-2.6 9.4-6.7 12.8-7.8 6.6-20.3 4.2-26.1-5.7-4.9-8.4-3-18.9 4.1-24.8 5.2-4.3 12.6-4.6 18.3-1l2.2-2.5z"/>
+              <path d="M33.5 12c-5.6 7.7-7.1 16.6-4.4 26.6.5 2 1.5 4.1 2.7 6.3l3-1.6c-1.1-2-2-3.9-2.4-5.7-2.4-9.1-1.1-17 4-23.8L33.5 12z"/>
             </svg>
           </span>
           <div class="leading-tight">
-            <div class="font-extrabold">Kopi Gunung Lestari</div>
-            <a href="https://www.kopigununglestari.id" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--muted)] hover:text-[var(--accent)]">www.kopigunung.id</a>
+            <div class="text-lg font-extrabold tracking-tight">Kopi Gunung Temanggung</div>
+            <a href="https://www.kopigunungtemanggung.id" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors">
+              www.kopigunungtemanggung.id
+            </a>
           </div>
         </a>
 
         <nav class="hidden md:flex items-center gap-6">
-          <a href="#home" class="text-sm text-[var(--muted)] hover:text-[var(--text)] py-2">Home</a>
-          <a href="#profil" class="text-sm text-[var(--muted)] hover:text-[var(--text)] py-2">Profil</a>
-          <a href="#produk" class="text-sm text-[var(--muted)] hover:text-[var(--text)] py-2">Produk</a>
-          <a href="#kontak" class="text-sm text-[var(--muted)] hover:text-[var(--text)] py-2">Kontak Kami</a>
+          <a href="#home" class="relative text-sm font-semibold text-[var(--muted)] hover:text-[var(--text)] transition-colors py-2">Home</a>
+          <a href="#profil" class="relative text-sm font-semibold text-[var(--muted)] hover:text-[var(--text)] transition-colors py-2">Profil</a>
+          <a href="#sosmed" class="relative text-sm font-semibold text-[var(--muted)] hover:text-[var(--text)] transition-colors py-2">Media Sosial</a>
+          <a href="#kontak" class="relative text-sm font-semibold text-[var(--muted)] hover:text-[var(--text)] transition-colors py-2">Kontak Kami</a>
         </nav>
 
-        <button id="menuBtn" aria-label="Buka menu" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 hover:bg-white/10">
-          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <button id="menuBtn" aria-label="Buka menu" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-[var(--text)] hover:bg-white/10 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
       </div>
 
-      <div id="mobileNav" class="md:hidden hidden pb-3">
-        <div class="grid gap-1.5">
+      <div id="mobileNav" class="md:hidden hidden pb-4">
+        <div class="grid gap-2">
           <a href="#home" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-[var(--muted)] hover:text-[var(--text)]">Home</a>
           <a href="#profil" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-[var(--muted)] hover:text-[var(--text)]">Profil</a>
-          <a href="#produk" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-[var(--muted)] hover:text-[var(--text)]">Produk</a>
+          <a href="#sosmed" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-[var(--muted)] hover:text-[var(--text)]">Media Sosial</a>
           <a href="#kontak" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-[var(--muted)] hover:text-[var(--text)]">Kontak Kami</a>
         </div>
       </div>
@@ -64,134 +113,308 @@
   <!-- Hero -->
   <section id="home" class="relative">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-10 items-center py-14 md:py-20">
+      <div class="grid md:grid-cols-2 gap-10 items-center py-16 md:py-24">
         <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Hanya contoh</h1>
-          <p class="mt-4 text-[var(--muted)]">Halo saya fathur</p>
-          <div class="mt-7 flex items-center gap-3">
-            <a href="#produk" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-[#2a170c] bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)] hover:brightness-95">
-              Lihat Produk
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 border border-white/15">
+            ☕ Kopi spesialti pegunungan
+          </span>
+          <h1 class="mt-5 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+            Seduh Kopiku, Sudahi Sedihmu...
+          </h1>
+          <p class="mt-2 text-lg md:text-xl font-semibold text-[var(--muted)] italic"></p>
+          <p class="mt-4 text-[var(--muted)] max-w-prose">
+            Dipetik dari dataran tinggi, disangrai dengan teliti, untuk secangkir yang selalu hangat di hati. Kenali profil rasa kami dan temukan seduhan favoritmu.
+          </p>
+          <div class="mt-8 flex items-center gap-3">
+            <a href="#profil" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-[#2a170c] bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)] shadow-lg shadow-[rgba(227,161,91,0.35)] hover:brightness-95 transition">
+              Tentang Kami
               <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/></svg>
             </a>
-            <a href="#profil" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold border border-white/15 hover:bg-white/10">
-              Profil
+            <a href="#galeri" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold border border-white/15 hover:bg-white/10 transition">
+              Lihat Galeri
             </a>
           </div>
+
+          <div class="mt-10 grid grid-cols-3 gap-3 max-w-md">
+            <div class="glass rounded-xl px-4 py-3 text-center" style="animation: floaty 4s ease-in-out infinite;">
+              <div class="text-2xl">🌱</div>
+              <div class="text-xs mt-1 text-[var(--muted)]">Ramah Lingkungan</div>
+            </div>
+            <div class="glass rounded-xl px-4 py-3 text-center" style="animation: floaty 4s ease-in-out 0.2s infinite;">
+              <div class="text-2xl">🏔️</div>
+              <div class="text-xs mt-1 text-[var(--muted)]">Asal Terverifikasi</div>
+            </div>
+            <div class="glass rounded-xl px-4 py-3 text-center" style="animation: floaty 4s ease-in-out 0.4s infinite;">
+              <div class="text-2xl">🔥</div>
+              <div class="text-xs mt-1 text-[var(--muted)]">Sangrai Segar</div>
+            </div>
+          </div>
         </div>
-        <div class="rounded-3xl p-6 border border-white/10 bg-white/5">
 
-<img src="img/pppp.png" alt="Kopi Gunung" class="w-full h-auto rounded-lg">
+        <!-- Hero visual -->
+        <div class="relative">
+          <div class="absolute -inset-6 md:-inset-10 rounded-3xl bg-gradient-to-br from-[rgba(227,161,91,0.25)] to-transparent blur-2xl"></div>
+          <div class="relative glass rounded-3xl p-6 md:p-8">
+            <div class="relative">
+              <div id="heroSvgWrap">
+                <svg viewBox="0 0 300 220" class="w-full h-auto" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="g1" x1="0" x2="1">
+                      <stop offset="0%" stop-color="#e3a15b"/>
+                      <stop offset="100%" stop-color="#c07a3e"/>
+                    </linearGradient>
+                    <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#3b2316"/>
+                      <stop offset="100%" stop-color="#1b120c"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="0" y="0" width="300" height="220" rx="16" fill="url(#g2)"/>
+                  <g transform="translate(40,30)">
+                    <path d="M40 30c0-18 30-18 30 0s-30 18-30 36 30 18 30 36" fill="none" stroke="url(#g1)" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+                    <path d="M80 18c0-16 26-16 26 0s-26 16-26 32 26 16 26 32" fill="none" stroke="url(#g1)" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+                    <rect x="10" y="80" width="140" height="70" rx="16" fill="#f2e5da" />
+                    <rect x="20" y="90" width="120" height="50" rx="12" fill="#fff8f1" />
+                    <rect x="25" y="95" width="110" height="40" rx="10" fill="#6b442b" />
+                    <path d="M150 92c22 0 40 16 40 36s-18 36-40 36" fill="none" stroke="#f2e5da" stroke-width="14"/>
+                    <path d="M150 104c16 0 28 10 28 24s-12 24-28 24" fill="none" stroke="#6b442b" stroke-width="8"/>
+                    <ellipse cx="80" cy="160" rx="100" ry="18" fill="#e7d9cc" opacity="0.9"/>
+                    <ellipse cx="80" cy="162" rx="70" ry="10" fill="#d7c6b6"/>
+                  </g>
+                </svg>
+              </div>
+              <img
+                id="heroPhoto"
+                src="img/pppp.png"
+                alt="Foto produk hero"
+                class="hidden w-full h-auto rounded-2xl"
+                onload="this.classList.remove('hidden'); document.getElementById('heroSvgWrap').classList.add('hidden');"
+                onerror="this.style.display='none'; this.alt='Image failed to load';"
+              >
+            </div>
+            <div class="mt-4 text-sm text-[var(--muted)] text-center">
+              Setiap batch disangrai kecil untuk menjaga konsistensi rasa.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-<p class="mt-3 text-sm text-[var(--muted)] text-center">Rasa konsisten tanpa ribet.</p>
-</div>
- </div> 
-</div>
-
- </section>
   <!-- Profil -->
-  <section id="profil" class="py-14 md:py-20">
+  <section id="profil" class="relative py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="rounded-3xl p-6 md:p-8 border border-white/10 bg-white/5">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Profil</h2>
-        <p class="mt-3 text-[var(--muted)]">
-          POLINES JAYA JAYA JAYA.
-        </p>
-        <div class="mt-6 grid sm:grid-cols-3 gap-4">
-          <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-            <div class="text-2xl">🫘</div>
-            <div class="font-semibold mt-1">Single & Blend</div>
-            <div class="text-xs text-[var(--muted)]">Pilihan rasa untuk berbagai selera.</div>
+      <div class="grid lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="lg:col-span-2 space-y-6">
+          <div class="glass rounded-3xl p-6 md:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <h2 class="text-2xl md:text-3xl font-extrabold">Profil</h2>
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold bg-white/10 border border-white/15">Temanggung • Arabika</span>
+            </div>
+            <div class="mt-5 grid md:grid-cols-2 gap-5">
+              <p class="text-[var(--muted)] leading-relaxed">
+                Kabupaten Temanggung adalah sentra kopi unggulan di Indonesia: ±14.500 ha lahan dengan panen rata-rata 1,1 ton/ha. Dari potensi itu lahir usaha kami Kopi Gunung Temanggung yang telah berjalan 6 tahun dipimpin Pak Maskuri bersama tim kecil beranggotakan 5 orang (2 pemilik + 3 karyawan).
+              </p>
+              <p class="text-[var(--muted)] leading-relaxed">
+                Kami memproduksi Arabika dengan kapasitas ±30 kg green bean/bulan dan ±100 kemasan bubuk 100 g/bulan. Seluruh proses—dari penyangraian hingga penggilingan kami kerjakan secara tradisional untuk menjaga cita rasa dan aroma alami. Kontrol suhu dan waktu sangrai kami jaga ketat agar konsisten.
+              </p>
+            </div>
+            <div class="mt-4 grid md:grid-cols-3 gap-4">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="text-xs text-[var(--muted)]">Luas Lahan</div>
+                <div class="mt-1 text-xl md:text-2xl font-extrabold">14.500 ha</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="text-xs text-[var(--muted)]">Rata Panen</div>
+                <div class="mt-1 text-xl md:text-2xl font-extrabold">1,1 ton/ha</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="text-xs text-[var(--muted)]">Tim</div>
+                <div class="mt-1 text-xl md:text-2xl font-extrabold">5 Orang</div>
+              </div>
+            </div>
           </div>
-          <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-            <div class="text-2xl">🔥</div>
-            <div class="font-semibold mt-1">Sangrai Segar</div>
-            <div class="text-xs text-[var(--muted)]">Batch kecil, kontrol rasa.</div>
+
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="glass rounded-2xl p-5">
+              <div class="flex items-center gap-2"><span class="text-lg">🔥</span><h3 class="font-bold">Penyangraian</h3></div>
+              <p class="mt-2 text-sm text-[var(--muted)]">Pengaturan suhu & waktu ketat untuk profil rasa konsisten.</p>
+            </div>
+            <div class="glass rounded-2xl p-5">
+              <div class="flex items-center gap-2"><span class="text-lg">🌀</span><h3 class="font-bold">Pendinginan</h3></div>
+              <p class="mt-2 text-sm text-[var(--muted)]">Menjaga biji tidak over-roast dan aroma tetap terjaga.</p>
+            </div>
+            <div class="glass rounded-2xl p-5">
+              <div class="flex items-center gap-2"><span class="text-lg">⚙️</span><h3 class="font-bold">Penggilingan</h3></div>
+              <p class="mt-2 text-sm text-[var(--muted)]">Gilingan tradisional sesuai metode seduh yang diinginkan.</p>
+            </div>
           </div>
-          <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-            <div class="text-2xl">🤝</div>
-            <div class="font-semibold mt-1">Dari alam</div>
-            <div class="text-xs text-[var(--muted)]">Jejak asal jelas.</div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="glass rounded-3xl p-6">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">🫘</span>
+              <div>
+                <div class="text-sm text-[var(--muted)]">Kapasitas Produksi</div>
+                <div class="text-lg font-extrabold">Arabika</div>
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+                <div class="text-xs text-[var(--muted)]">Green Bean</div>
+                <div class="text-base font-bold">± 30 kg/bulan</div>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+                <div class="text-xs text-[var(--muted)]">Kopi Bubuk</div>
+                <div class="text-base font-bold">± 100 kemasan/bulan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">💸</span>
+              <div>
+                <div class="text-sm text-[var(--muted)]">Rentang Harga</div>
+                <div class="text-lg font-extrabold">Per 100 gram</div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-2xl font-extrabold tracking-tight">Rp 25.000 — Rp 45.000</div>
+              <p class="mt-2 text-sm text-[var(--muted)]">Tergantung jenis olahan. Kualitas khas dengan harga ramah.</p>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-full text-[11px] font-semibold bg-white/10 border border-white/15">Rasa khas</span>
+              <span class="px-3 py-1.5 rounded-full text-[11px] font-semibold bg-white/10 border border-white/15">Harga terjangkau</span>
+              <span class="px-3 py-1.5 rounded-full text-[11px] font-semibold bg-white/10 border border-white/15">Prospek berkembang</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 p-5 bg-white/5">
+            <div class="flex items-start gap-3">
+              <span class="text-xl">🏷️</span>
+              <div class="text-sm text-[var(--muted)]">Produk kami telah diterima luas oleh masyarakat dan terus mendapat kepercayaan karena konsistensi rasa.</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Produk -->
-<section id="produk" class="py-14 md:py-20">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="flex items-end justify-between">
-      <h2 class="text-2xl md:text-3xl font-extrabold">Produk</h2>
-      <a href="#kontak" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">Butuh rekomendasi?</a>
-    </div>
+  <!-- Galeri Profil (Versi kartu 4, dengan ring estetik) -->
+  <section id="galeri" class="relative py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Galeri</h2>
+        <p class="text-sm text-[var(--muted)]">Kebun, proses sangrai, pemandangan, dan aktivitas.</p>
+      </div>
 
-    <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Card 1: Robusta -->
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col">
-        <div class="text-sm text-[var(--muted)]">Single Origin</div>
-        <h3 class="mt-1 font-bold">ROBUSTA</h3>
-        <!-- Gambar yang diunggah untuk Robusta -->
-        <div class="mt-3 aspect-[5/3] rounded-lg bg-gradient-to-br from-[#5b3a25] to-[#2f1c12] grid place-items-center">
-          <img src="img/P11 (1).jpg" alt="Robusta Coffee Image" class="w-full h-auto rounded-lg" />
-        </div>
-        <p class="mt-3 text-sm text-[var(--muted)]">Cokelat susu, karamel, body medium.</p>
-        <div class="mt-4 flex items-center justify-between">
-          <div class="font-extrabold">Rp 55.000</div>
-          <button class="buyBtn px-3 py-2 text-sm font-bold rounded-lg border border-white/15 hover:bg-white/10" data-name="Arjuna Medium Roast">Beli</button>
-        </div>
-      </article>
+      <div id="galleryGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Kartu Template: Kebun Kopi -->
+        <figure class="aesthetic-ring rounded-2xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-[rgba(227,161,91,0.18)]">
+          <div class="rounded-[17px] overflow-hidden glass">
+            <div class="relative aspect-[5/3]">
+              <img
+                id="imgKebun"
+                src="img/AKK2.jpeg"
+                alt="Foto kebun kopi"
+                class="absolute inset-0 w-full h-full object-cover"
+                onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+              >
+              <div class="absolute left-3 top-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-black/40 border border-white/10 backdrop-blur">Kebun Kopi</div>
+            </div>
+            <figcaption class="p-4 flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Ditanam dengan sepenuh hati</div>
+                <div class="text-xs text-[var(--muted)]">Penuh konsistensi</div>
+              </div>
+              
+            </figcaption>
+          </div>
+        </figure>
 
-      <!-- Card 2: Arabica -->
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col">
-        <div class="text-sm text-[var(--muted)]">Blend</div>
-        <h3 class="mt-1 font-bold">ARABICA</h3>
-        <!-- Gambar yang diunggah untuk Arabica -->
-        <div class="mt-3 aspect-[5/3] rounded-lg bg-gradient-to-br from-[#70472d] to-[#2e1b11] grid place-items-center">
-          <img src="img/P11 (2).jpg" alt="Arabica Coffee Image" class="w-full h-auto rounded-lg" />
-        </div>
-        <p class="mt-3 text-sm text-[var(--muted)]">Seimbang, enak untuk harian.</p>
-        <div class="mt-4 flex items-center justify-between">
-          <div class="font-extrabold">Rp 49.000</div>
-          <button class="buyBtn px-3 py-2 text-sm font-bold rounded-lg border border-white/15 hover:bg-white/10" data-name="Lereng Timur Blend">Beli</button>
-        </div>
-      </article>
+        <!-- Proses Sangrai -->
+        <figure class="aesthetic-ring rounded-2xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-[rgba(227,161,91,0.18)]">
+          <div class="rounded-[17px] overflow-hidden glass">
+            <div class="relative aspect-[5/3]">
+              <img
+                id="imgSangrai"
+                src="img/AKK3.jpeg"
+                alt="Foto proses sangrai"
+                class="absolute inset-0 w-full h-full object-cover"
+                onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+              >
+              <div class="absolute left-3 top-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-black/40 border border-white/10 backdrop-blur">Proses Sangrai</div>
+            </div>
+            <figcaption class="p-4 flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Proses Sangrai</div>
+                <div class="text-xs text-[var(--muted)]">Di sangrai penuh ketilitian</div>
+              </div>
+              
+            </figcaption>
+          </div>
+        </figure>
 
-      <!-- Card 3: Toraja -->
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col">
-        <div class="text-sm text-[var(--muted)]">Single Origin</div>
-        <h3 class="mt-1 font-bold">TORAJA</h3>
-        <!-- Gambar yang diunggah untuk Toraja -->
-        <div class="mt-3 aspect-[5/3] rounded-lg bg-gradient-to-br from-[#7a4d31] to-[#3a2416] grid place-items-center">
-          <img src="img/P11 (3).jpg" alt="Toraja Coffee Image" class="w-full h-auto rounded-lg" />
-        </div>
-        <p class="mt-3 text-sm text-[var(--muted)]">Cerah, manis, pour-over.</p>
-        <div class="mt-4 flex items-center justify-between">
-          <div class="font-extrabold">Rp 100.000</div>
-          <button class="buyBtn px-3 py-2 text-sm font-bold rounded-lg border border-white/15 hover:bg-white/10" data-name="Sindoro Light Roast">Beli</button>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+        <!-- Pemandangan -->
+        <figure class="aesthetic-ring rounded-2xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-[rgba(227,161,91,0.18)]">
+          <div class="rounded-[17px] overflow-hidden glass">
+            <div class="relative aspect-[5/3]">
+              <img
+                id="imgView"
+                src="img/AKK1.png"
+                alt="Foto pemandangan"
+                class="absolute inset-0 w-full h-full object-cover"
+                onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+              >
+              <div class="absolute left-3 top-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-black/40 border border-white/10 backdrop-blur">katalog produk</div>
+            </div>
+            <figcaption class="p-4 flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Katalog produk</div>
+                <div class="text-xs text-[var(--muted)]">Harga terjangkau</div>
+              </div>
+              
+            </figcaption>
+          </div>
+        </figure>
 
-
-      <!-- Info strip -->
-      <div id="miniInfo" class="hidden mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
-        Terakhir ditambahkan: <span id="lastItem" class="text-[var(--muted)]"></span>
-        <button id="clearInfo" class="ml-3 px-2 py-1 text-xs rounded border border-white/15 hover:bg-white/10">Bersihkan</button>
+        <!-- Aktivitas -->
+        <figure class="aesthetic-ring rounded-2xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-[rgba(227,161,91,0.18)]">
+          <div class="rounded-[17px] overflow-hidden glass">
+            <div class="relative aspect-[5/3]">
+              <img
+                id="imgAktivitas"
+                src="img/P11 (2).jpg"
+                alt="Foto aktivitas"
+                class="absolute inset-0 w-full h-full object-cover"
+                onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';"
+              >
+              <div class="absolute left-3 top-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-black/40 border border-white/10 backdrop-blur">Biji kopi</div>
+            </div>
+            <figcaption class="p-4 flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Biji kopi arabica berkualitas</div>
+                <div class="text-xs text-[var(--muted)]">Denggan biji kopi pilihan</div>
+                
+              </div>
+              
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+        
       </div>
     </div>
   </section>
 
-  <!-- Kontak Kami -->
-  <section id="kontak" class="py-14 md:py-20">
+  <!-- Kontak -->
+  <section id="kontak" class="relative py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="rounded-3xl p-6 md:p-8 border border-white/10 bg-white/5">
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="glass rounded-3xl p-6 md:p-8">
           <h2 class="text-2xl md:text-3xl font-extrabold">Kontak Kami</h2>
-          <p class="mt-3 text-[var(--muted)]">Tanyakan apa saja atau minta penawaran grosir. Ini adalah formulir demo dan akan menampilkan notifikasi di halaman.</p>
-
+          <p class="mt-3 text-[var(--muted)]">Ada pertanyaan atau ingin pemesanan grosir? Kirim pesanmu, kami siap membantu.</p>
           <form id="contactForm" class="mt-6 grid gap-4">
             <div>
               <label class="block text-sm mb-1">Nama</label>
@@ -203,116 +426,179 @@
             </div>
             <div>
               <label class="block text-sm mb-1">Pesan</label>
-              <textarea required name="pesan" rows="4" class="w-full rounded-xl px-4 py-3 bg-white/10 border border-white/15 outline-none focus:border-[var(--accent)]" placeholder="Tulis pesanmu..."></textarea>
+              <textarea required name="pesan" rows="4" class="w-full rounded-xl px-4 py-3 bg-white/10 border border-white/15 outline-none focus:border-[var(--accent)]" placeholder="Tulis pesanmu di sini..."></textarea>
             </div>
-            <button type="submit" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-[#2a170c] bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)] hover:brightness-95">
-              Kirim
-              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            </button>
-            <p class="text-xs text-[var(--muted)] mt-1"></p>
+            <div class="flex items-center gap-3">
+              <button type="submit" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-[#2a170c] bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)] hover:brightness-95">
+                Kirim Pesan
+                <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+              <a href="https://wa.me/6285290297236" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold border border-white/15 hover:bg-white/10">
+                Chat WhatsApp
+                <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M20 3.5A10.5 10.5 0 1 0 3.2 20.7L2 24l3.4-1.2A10.5 10.5 0 1 0 20 3.5Zm-5.8 13.8c-2.7 0-5.3-1.5-6.5-3.9-.4-.8-.5-1.5-.5-2 0-.3.2-.6.4-.8l1-1c.3-.3.8-.3 1.1 0l1 1c.3.3.3.8 0 1.1l-.3.3c-.1.1-.1.3 0 .6.4 1.1 1.8 2.3 2.9 2.7.3.1.5.1.6 0l.3-.3c.3-.3.8-.3 1.1 0l1 1c.3.3.3.8 0 1.1l-1 1c-.2.2-.5.4-.8.4h-.3Z"/></svg>
+              </a>
+            </div>
+            <p class="text-xs text-[var(--muted)]">Catatan: Formulir ini bersifat demo; pesanmu ditampilkan sebagai notifikasi di laman ini.</p>
           </form>
         </div>
-
-        <div class="rounded-3xl p-6 md:p-8 border border-white/10 bg-white/5">
-          <h3 class="font-bold">Alamat & Jam</h3>
-          <p class="mt-2 text-[var(--muted)]">Jalan Lereng No. 10, Desa Kopi, Indonesia</p>
-          <div class="mt-5 grid grid-cols-2 gap-3">
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-              <div class="text-xs text-[var(--muted)]">Senin–Jumat</div>
-              <div class="font-semibold">08.00–17.00</div>
+        <div class="glass rounded-3xl p-6 md:p-8">
+          <h3 class="text-lg font-bold">Kontak Kami</h3>
+          <div class="mt-3 space-y-3 text-sm">
+            <div class="rounded-2xl border border-white/10 p-4 bg-white/5">
+              <div class="text-[var(--muted)]">Nama Usaha</div>
+              <div class="mt-1 font-semibold">Kopi Gunung Temanggung</div>
             </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-              <div class="text-xs text-[var(--muted)]">Sabtu</div>
-              <div class="font-semibold">09.00–15.00</div>
+            <div class="rounded-2xl border border-white/10 p-4 bg-white/5">
+              <div class="text-[var(--muted)]">Kontak</div>
+              <div class="mt-1 font-semibold">Maskuri</div>
+              <div class="mt-1 flex flex-wrap items-center gap-2">
+                <a href="https://wa.me/6285290297236" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 hover:bg-white/10 font-semibold">
+                  <span>📱</span> 0852-9029-7236
+                </a>
+                <a href="mailto:kopigunungtemanggung@gmail.com" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 hover:bg-white/10 font-semibold">
+                  <span>✉️</span> kopigunungtemanggung@gmail.com
+                </a>
+                <a href="mailto:halo@kopigunungtemanggung.id" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 hover:bg-white/10 font-semibold">
+                  <span>✉️</span> halo@kopigunungtemanggung.id
+                </a>
+              </div>
             </div>
-          </div>
-          <div class="mt-6">
-            <a href="https://wa.me/6285779545269" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/15 hover:bg-white/10">
-              Chat WhatsApp
-              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M20 3.5A10.5 10.5 0 1 0 3.2 20.7L2 24l3.4-1.2A10.5 10.5 0 1 0 20 3.5Zm-5.8 13.8c-2.7 0-5.3-1.5-6.5-3.9-.4-.8-.5-1.5-.5-2 0-.3.2-.6.4-.8l1-1c.3-.3.8-.3 1.1 0l1 1c.3.3.3.8 0 1.1l-.3.3c-.1.1-.1.3 0 .6.4 1.1 1.8 2.3 2.9 2.7.3.1.5.1.6 0l.3-.3c.3-.3.8-.3 1.1 0l1 1c.3.3.3.8 0 1.1l-1 1c-.2.2-.5.4-.8.4h-.3Z"/></svg>
-            </a>
+            <div class="rounded-2xl border border-white/10 p-4 bg-white/5">
+              <div class="text-[var(--muted)]">Alamat</div>
+              <div class="mt-1 font-semibold leading-relaxed">
+                Dusun Siklatak, Desa Sigedong, Kecamatan Tretep, Temanggung, Jawa Tengah
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=Dusun+Siklatak,+Desa+Sigedong,+Kecamatan+Tertep,+Temanggung,+Jawa+Tengah" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 hover:bg-white/10 font-semibold">
+                <span>📍</span> Lihat di Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/10">
+  <!-- Media Sosial -->
+  <section id="sosmed" class="relative py-12">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="py-8 flex flex-col md:flex-row items-center justify-between gap-3">
-        <div class="text-sm text-[var(--muted)]">© <span id="year"></span> Kopi Gunung Lestari</div>
-        <div class="flex items-center gap-4 text-sm">
-          <a href="#home" class="text-[var(--muted)] hover:text-[var(--text)]">Home</a>
-          <a href="#profil" class="text-[var(--muted)] hover:text-[var(--text)]">Profil</a>
-          <a href="#produk" class="text-[var(--muted)] hover:text-[var(--text)]">Produk</a>
-          <a href="#kontak" class="text-[var(--muted)] hover:text-[var(--text)]">Kontak Kami</a>
+      <div class="glass rounded-3xl p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Media Sosial</h2>
+        <p class="mt-2 text-[var(--muted)] text-sm">Terhubung dengan kami melalui kanal resmi berikut.</p>
+        <div class="mt-6 grid sm:grid-cols-3 gap-4">
+          <a href="https://www.instagram.com/kopigunung01/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition flex items-center gap-3">
+            <span class="inline-flex w-10 h-10 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-yellow-500">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>
+            </span>
+            <div>
+              <div class="font-semibold">Instagram</div>
+              <div class="text-xs text-[var(--muted)]">@kopigunung01</div>
+            </div>
+          </a>
+          <a href="https://wa.me/6285290297236" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition flex items-center gap-3">
+            <span class="inline-flex w-10 h-10 items-center justify-center rounded-xl bg-green-500">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="currentColor" aria-hidden="true"><path d="M20 3.5A10.5 10.5 0 1 0 3.2 20.7L2 24l3.4-1.2A10.5 10.5 0 1 0 20 3.5Zm-5.8 13.8c-2.7 0-5.3-1.5-6.5-3.9-.4-.8-.5-1.5-.5-2 0-.3.2-.6.4-.8l1-1c.3-.3.8-.3 1.1 0l1 1c.3.3.3.8 0 1.1l-.3.3c-.1.1-.1.3 0 .6.4 1.1 1.8 2.3 2.9 2.7.3.1.5.1.6 0l.3-.3c.3-.3.8-.3 1.1 0l1 1c.3.3.3.8 0 1.1l-1 1c-.2.2-.5.4-.8.4h-.3Z"/></svg>
+            </span>
+            <div>
+              <div class="font-semibold">WhatsApp</div>
+              <div class="text-xs text-[var(--muted)]">0852-9029-7236</div>
+            </div>
+          </a>
+          <a href="mailto:kopigunungtemanggung@gmail.com" class="group rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition flex items-center gap-3">
+            <span class="inline-flex w-10 h-10 items-center justify-center rounded-xl bg-indigo-500">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="currentColor" aria-hidden="true"><path d="M2 6a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V6Zm3-.5h14c.3 0 .5.2.5.5v.3l-7.4 5.2a2 2 0 0 1-2.2 0L4.5 6.3V6c0-.3.2-.5.5-.5Z"/></svg>
+            </span>
+            <div>
+              <div class="font-semibold">Email</div>
+              <div class="text-xs text-[var(--muted)]">kopigunungtemanggung@gmail.com</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-[var(--muted)]">© <span id="year"></span> Kopi Gunung Temanggung. Semua hak dilindungi.</div>
+        <div class="flex items-center gap-4">
+          <a href="#home" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">Home</a>
+          <a href="#profil" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">Profil</a>
+          <a href="#galeri" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">Galeri</a>
+          <a href="#kontak" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">Kontak Kami</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Toast -->
-  <div id="toast" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] px-4 py-3 rounded-xl border border-white/15 bg-white/10">
+  <div id="toast" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] px-4 py-3 rounded-xl glass">
     <div id="toastMsg" class="text-sm"></div>
   </div>
 
   <script>
-    // Tahun footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Menu mobile
+    // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileNav = document.getElementById('mobileNav');
-    menuBtn.addEventListener('click', ()=> mobileNav.classList.toggle('hidden'));
-    mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.add('hidden')));
+    if (menuBtn) menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    Array.from(document.querySelectorAll('#mobileNav a')).forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
 
-    // Toast sederhana
+    // Nav aktif saat scroll
+    const sections = ['home','profil','galeri','kontak','sosmed'].map(id => document.getElementById(id));
+    const navLinks = Array.from(document.querySelectorAll('header nav a'));
+    const updateActive = () => {
+      let current = 'home';
+      const y = window.scrollY + 120;
+      sections.forEach(sec => { if (sec && sec.offsetTop <= y) current = sec.id; });
+      navLinks.forEach(link => {
+        link.classList.remove('nav-active');
+        const href = link.getAttribute('href').replace('#','');
+        if (href === current) link.classList.add('nav-active');
+      });
+    };
+    window.addEventListener('scroll', updateActive);
+    window.addEventListener('load', updateActive);
+
+    // Toast helper
     const toast = document.getElementById('toast');
     const toastMsg = document.getElementById('toastMsg');
-    function showToast(msg){
+    function showToast(msg) {
       toastMsg.textContent = msg;
       toast.classList.remove('hidden');
       toast.style.opacity = '1';
-      setTimeout(()=>{
+      setTimeout(() => {
         toast.style.transition = 'opacity 300ms';
         toast.style.opacity = '0';
-        setTimeout(()=>{
+        setTimeout(() => {
           toast.classList.add('hidden');
           toast.style.transition = '';
-        },320);
-      },1600);
+        }, 320);
+      }, 1600);
     }
+    window.showToast = showToast;
 
-    // Tombol beli menampilkan info dan toast
-    const miniInfo = document.getElementById('miniInfo');
-    const lastItem = document.getElementById('lastItem');
-    document.querySelectorAll('.buyBtn').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const name = btn.getAttribute('data-name');
-        lastItem.textContent = name;
-        miniInfo.classList.remove('hidden');
-        showToast(`Ditambahkan: ${name} 🎉`);
+    // Ganti foto via prompt (opsional)
+    const btns = Array.from(document.querySelectorAll('.btnUrl'));
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        const el = document.getElementById(id);
+        const url = prompt('Tempel URL gambar (.jpg/.png) yang bisa diakses publik:');
+        if (!url) return;
+        try {
+          const u = new URL(url);
+          el.onerror = () => { el.src = ''; el.alt = 'Image failed to load'; el.style.display='none'; showToast('Gagal memuat gambar. Coba URL lain.'); };
+          el.style.display = '';
+          el.src = u.href;
+          showToast('Gambar diperbarui!');
+        } catch (e) {
+          showToast('URL tidak valid.');
+        }
       });
     });
-    document.getElementById('clearInfo').addEventListener('click', ()=>{
-      lastItem.textContent = '';
-      miniInfo.classList.add('hidden');
-      showToast('Daftar kosong.');
-    });
-
-    // Form kontak demo
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      showToast(`Terima kasih, ${data.nama}! Pesan diterima.`);
-      form.reset();
-    });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9831d18185477e8d',t:'MTc1ODU0NDI3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9839fb8c9686fd0f',t:'MTc1ODYyOTg4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
-
